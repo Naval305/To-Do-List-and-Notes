@@ -1,0 +1,390 @@
+Screen:
+
+    MDToolbar:
+
+        id: toolbar
+        title: "To Do List & Notes"
+        pos_hint: {"top": 1}
+        left_action_items:[["menu", lambda x: nav_drawer.set_state("open")]]
+        
+    MDNavigationLayout:
+
+        ScreenManager:
+            id: screen_manager
+
+            Screen:
+
+                name: "scr 1"
+
+                MDLabel:
+
+                    text: "Content"
+                    halign: "center"
+
+                ScrollView:
+
+                    id: scrol
+                    size_hint: 1,.92
+                    pos_hint: {"top":.92}
+
+                    MDBoxLayout:
+
+                        id: box
+                        orientation: 'vertical'
+                        spacing: 18
+                        padding: [10,18,10,10]
+                        size_hint_y: None
+                        height: self.minimum_height
+                        row_default_height: '100dp'
+                        row_force_default: True
+
+                MDBottomAppBar:
+
+                    MDToolbar:
+
+                        title: ""
+                        icon: "calendar-plus"
+                        type: "bottom"
+                        mode: "end"
+                        left_action_items: [["format-color-fill", lambda x: app.show_theme_picker()]]
+                        on_action_button:app.open_popup() 
+
+                TooltipMDIconButton:
+
+                    id: buttonn
+                    icon: "inbox-arrow-down"
+                    tooltip_text: "Completed tasks list"
+                    pos_hint: {"x": .88, "y": .91}
+                    elevation: 18
+                    on_release: app.menu.open()
+
+                TooltipMDIconButton:
+
+                    id: deletee
+                    icon: "delete-forever"
+                    tooltip_text: "Delete All tasks"
+                    pos_hint: {"x": .93, "y": .91}
+                    elevation: 18
+                    on_release: app.delete_all()
+
+            Screen:
+                name: "unhide_scr"
+    
+                MDCard:
+                    size_hint: None, None
+                    size: 300, 300
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    elevation: 10
+                    padding: 25
+                    spacing: 25
+                    orientation: 'vertical'
+
+                    MDLabel:
+                        id: welcome_label
+                        text: "Enter your password"
+                        font_size: 25
+                        halign: 'center'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        padding_y: 15
+
+                    MDTextFieldRound:
+                        id: password
+                        hint_text: "password"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+                        pos_hint: {"center_x": 0.5}
+                        password: True
+
+                    MDRoundFlatButton:
+                        text: "ENTER"
+                        font_size: 12
+                        pos_hint: {"center_x": 0.5}
+                        on_press: app.unhide()          
+
+                    Widget:
+                        size_hint_y: None
+                        height: 10
+
+            Screen:
+                name: "pass_set"
+    
+                MDCard:
+                    size_hint: None, None
+                    size: 300, 350
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    elevation: 10
+                    padding: 25
+                    spacing: 25
+                    orientation: 'vertical'
+
+                    MDLabel:
+                        id: welcome_label1
+                        text: "Set Password"
+                        font_size: 25
+                        halign: 'center'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        padding_y: 15
+
+                    MDTextFieldRound:
+                        id: pass_confirm
+                        hint_text: "Password"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+                        pos_hint: {"center_x": 0.5}
+                        password: True
+
+                    MDTextFieldRound:
+                        id: pass_confirm2
+                        hint_text: "Confirm Password"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 18
+                        pos_hint: {"center_x": 0.5}
+                        password: True
+
+                    MDRoundFlatButton:
+                        text: "SAVE"
+                        font_size: 12
+                        pos_hint: {"center_x": 0.5}
+                        on_press: app.save_pass()          
+
+                    Widget:
+                        size_hint_y: None
+                        height: 10
+
+            Screen:
+
+                name: "change_pass"
+    
+                MDCard:
+                    size_hint: None, None
+                    size: 300, 250
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    elevation: 10
+                    padding: 25
+                    spacing: 25
+                    orientation: 'vertical'
+
+                    MDLabel:
+                        id: welcome_label2
+                        text: "Enter current Password"
+                        font_size: 20
+                        halign: 'center'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        padding_y: 15
+
+                    MDTextFieldRound:
+                        id: pass_change
+                        hint_text: "Password"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 16
+                        pos_hint: {"center_x": 0.5}
+                        password: True
+
+                    MDRoundFlatButton:
+                        text: "ENTER"
+                        font_size: 12
+                        pos_hint: {"center_x": 0.5}
+                        on_press: app.check_file_pass()          
+
+                    Widget:
+                        size_hint_y: None
+                        height: 10
+
+            Screen:
+
+                name: "remove_pass"
+    
+                MDCard:
+                    size_hint: None, None
+                    size: 300, 250
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    elevation: 10
+                    padding: 25
+                    spacing: 25
+                    orientation: 'vertical'
+
+                    MDLabel:
+                        id: welcome_label3
+                        text: "Enter current Password"
+                        font_size: 20
+                        halign: 'center'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        padding_y: 15
+
+                    MDTextFieldRound:
+                        id: rmv_pass
+                        hint_text: "Password"
+                        size_hint_x: None
+                        width: 200
+                        font_size: 16
+                        pos_hint: {"center_x": 0.5}
+                        password: True
+
+                    MDRoundFlatButton:
+                        text: "ENTER"
+                        font_size: 12
+                        pos_hint: {"center_x": 0.5}
+                        on_press: app.remove_file_pass()          
+
+                    Widget:
+                        size_hint_y: None
+                        height: 10
+
+            Screen:
+
+                name: "scr 2"
+
+                MDLabel:
+
+                    text: "Write your notes here:"
+                    pos_hint: {"center_x":0.6, "center_y":0.85}
+
+                ScrollView:
+
+                    id: scroll
+                    size_hint: 1,.92
+                    pos_hint: {"top":.92}
+
+                    MDBoxLayout:
+
+                        id: box2
+                        orientation: 'vertical'
+                        spacing: 18
+                        padding: [10,18,10,10]
+                        size_hint_y: None
+                        height: self.minimum_height
+                        row_default_height: '100dp'
+                        row_force_default: True
+
+                MDFloatingActionButton:
+
+                    id: adder
+                    pos_hint: {"top":.16, "right":.97}
+                    icon: 'plus'
+                    on_release:app.opennotes()
+
+            Screen:
+                
+                name: "settings"
+
+                MDBoxLayout:
+
+                    size_hint: 1,.92
+                    pos_hint: {"y":.36}
+                    orientation: 'vertical'
+
+                    TwoLineAvatarListItem:
+
+                        text: 'Set password for notes'
+                        secondary_text: "Password protection is only available for notes!"
+                        on_release: app.set_pass()
+                        ImageLeftWidget:
+                            source: "image_files\\lock.png"
+
+                    TwoLineAvatarListItem:
+
+                        text: 'Delete password'
+                        secondary_text: "Password protection will be removed from your notes!"
+                        on_release: app.remove_pass()
+                        ImageLeftWidget:
+                            source: "image_files\\del.png"
+
+                    ThreeLineAvatarListItem:
+
+                        text: 'Delete all completed task list'
+                        secondary_text: "This will delete list of all the completed tasks"
+                        tertiary_text: "Changes will be displayed after app restarts"
+                        on_release: app.delete_finished()
+                        ImageLeftWidget:
+                            source: "image_files\\delete.jpg"
+
+                    ThreeLineAvatarListItem:
+
+                        text: 'Set day/night automatic theme on or off'
+                        secondary_text: "When it's 7pm IST or more theme will automatically change to dark if this setting is on"
+                        tertiary_text: "Changes will be made after app restarts"
+                        on_release: app.theme()
+                        ImageLeftWidget:
+                            source: "image_files\\theme.png"
+                        
+        MDNavigationDrawer:
+
+            id: nav_drawer
+
+            MDBoxLayout:
+
+                orientation: "vertical"
+                pos_hint: {"center_x":.5, "y":.47}
+                size: "300dp", "300dp"
+                adaptive_height: True
+
+                Image:
+
+                    pos_hint: {'top':1}
+                    source: 'image_files\\image.jpg'
+                    
+
+                MDBoxLayout:
+
+                    MDList:
+
+                        padding: "8dp"
+                        spacing: "8dp"
+                        pos_hint: {"top": 1}
+
+                        OneLineIconListItem:
+
+                            text: "Tasks"
+                            on_press:
+                                root.ids.nav_drawer.set_state("close")
+                                root.ids.screen_manager.current = "scr 1"
+                            IconLeftWidget:
+                                icon: 'image_files\\task.png'
+                                user_font_size : '12sp'
+                                pos_hint: {'center_x': 1, 'center_y':.54}
+
+                        OneLineIconListItem:
+
+                            text: "Notes"
+                            on_press:
+                                root.ids.nav_drawer.set_state("close")
+                                app.checkPASS()
+                            IconLeftWidget:
+                                icon: 'image_files\\notess.png'
+                                user_font_size : '12sp'
+                                pos_hint: {'center_x': 1, 'center_y':.54}
+
+
+                        OneLineIconListItem:
+
+                            text: 'Settings'
+                            on_release:
+
+                                root.ids.nav_drawer.set_state("close")
+                                root.ids.screen_manager.current = "settings"
+
+                            IconLeftWidget:
+
+                                icon: 'image_files\\Settings.ico'
+                                user_font_size : '15sp'
+                                pos_hint: {'center_x': 1, 'center_y':.54}
+
+                        OneLineIconListItem:
+
+                            text: 'About App'
+                            on_release:
+                                app.about_App()
+
+                            IconLeftWidget:
+
+                                icon: 'image_files\\about.png'
+                                user_font_size : '12sp'
+                                pos_hint: {'center_x': 1, 'center_y':.54}                     

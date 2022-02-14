@@ -1,0 +1,66 @@
+MDFloatLayout:
+    MDLabel:
+        text: "Enter your task: "
+        pos_hint: {'x':.14, 'y':.62}
+        theme_text_color: "Custom"
+        text_color: get_color_from_hex('#000000')
+
+    MDLabel:
+        text: "Enter your Description(optional): "
+        pos_hint: {'x':.14, 'y':.38}
+        theme_text_color: "Custom"
+        text_color: get_color_from_hex('#000000')
+
+    MDLabel:
+        text: "Select priority level:"
+        size_hint: (.8,.8)
+        pos_hint: {'x':.14, 'y':.05}
+        theme_text_color: "Custom"
+        text_color: get_color_from_hex('#000000')
+
+    MDLabel:
+        text: "Low"
+        pos_hint: {'x':.4, 'y':.23}
+        size_hint: (.5,.5)
+        font_size: '12sp'
+        
+    MDLabel:
+        text: "High"
+        pos_hint: {'x':.818, 'y':.23}
+        size_hint: (.5,.5)
+        font_size: '12sp'
+
+    MDLabel:
+        text: "Note: "
+        pos_hint: {'x':.36, 'y':.029}
+        size_hint: (.5,.5)
+        font_size: '12sp'
+
+    MDLabel:
+        text: "If priority is high you will receive multiple notifications (depending on time left)"
+        pos_hint: {'x':.41, 'y':.01}
+        size_hint: (.5,.5)
+        font_size: '12sp'
+
+	MDFillRoundFlatIconButton:
+        icon: "calendar-clock"
+		text: "Date"
+		pos_hint: {'x':.45, 'y':.57}
+		on_release: app.show_date_picker()
+        md_bg_color: get_color_from_hex('#FFFF00')
+
+    MDFillRoundFlatIconButton:
+        icon:"clock"
+		text: "Time"
+		pos_hint: {'x':.66, 'y':.57}
+		on_release: app.show_time_picker()
+        md_bg_color: get_color_from_hex('#FFFF00')
+
+    MDSlider:
+        min: 1
+        max: 4
+        pos_hint: {'x':.38, 'y':.4}
+        size_hint: .5,.1
+        on_touch_move: app.callbck(self.value)
+        on_touch_down: app.callbck(self.value)
+        on_touch_up: app.callbck(self.value)
