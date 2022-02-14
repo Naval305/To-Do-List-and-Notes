@@ -1,0 +1,16 @@
+[u]App's Name[/u]: [b]To Do List & Notes[/b]
+[u]Version[/u]: [b]1.0.0[/b]
+[u]Developer[/u]: [b]Naval Shankhdhar[/b]
+[u]Gmail[/u]: [b]navalshankhdharlife@gmail.com[/b]
+
+_____________________________________________
+This app helps you to keep track of your
+daily, weekly tasks in order to manage 
+and optimize your time more efficiently.
+The app lets you to set notification 
+remainder on basis of priority set by you, 
+you can use it as a personal diary to
+ write your daily notes and much more... 
+To Do List & Notes come with built in
+password protection for your private notes.
+_____________________________________________
