@@ -10,9 +10,13 @@ Python 3.8 - Python 3.10 required
 Install from requirements.txt
 
 For ubuntu:
+
 sudo apt update
+
 sudo apt install xclip xsel
+
 sudo chmod a+r /dev/input/event4
+
 
 
 
