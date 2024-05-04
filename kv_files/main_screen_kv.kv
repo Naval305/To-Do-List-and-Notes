@@ -287,7 +287,7 @@ Screen:
                         secondary_text: "Password protection is only available for notes!"
                         on_release: app.set_pass()
                         ImageLeftWidget:
-                            source: "image_files\\lock.png"
+                            source: app.image_path("lock.png")
 
                     TwoLineAvatarListItem:
 
@@ -295,7 +295,7 @@ Screen:
                         secondary_text: "Password protection will be removed from your notes!"
                         on_release: app.remove_pass()
                         ImageLeftWidget:
-                            source: "image_files\\del.png"
+                            source: app.image_path("del.png")
 
                     ThreeLineAvatarListItem:
 
@@ -304,7 +304,7 @@ Screen:
                         tertiary_text: "Changes will be displayed after app restarts"
                         on_release: app.delete_finished()
                         ImageLeftWidget:
-                            source: "image_files\\delete.jpg"
+                            source: app.image_path("delete.jpg")
 
                     ThreeLineAvatarListItem:
 
@@ -313,7 +313,7 @@ Screen:
                         tertiary_text: "Changes will be made after app restarts"
                         on_release: app.theme()
                         ImageLeftWidget:
-                            source: "image_files\\theme.png"
+                            source: app.image_path("theme.png")
                         
         MDNavigationDrawer:
 
@@ -329,7 +329,7 @@ Screen:
                 Image:
 
                     pos_hint: {'top':1}
-                    source: 'image_files\\image.jpg'
+                    source: app.image_path("image.jpg")
                     
 
                 MDBoxLayout:
@@ -347,7 +347,7 @@ Screen:
                                 root.ids.nav_drawer.set_state("close")
                                 root.ids.screen_manager.current = "scr 1"
                             IconLeftWidget:
-                                icon: 'image_files\\task.png'
+                                icon: app.image_path("task.png")
                                 user_font_size : '12sp'
                                 pos_hint: {'center_x': 1, 'center_y':.54}
 
@@ -358,7 +358,7 @@ Screen:
                                 root.ids.nav_drawer.set_state("close")
                                 app.checkPASS()
                             IconLeftWidget:
-                                icon: 'image_files\\notess.png'
+                                icon: app.image_path("notess.png")
                                 user_font_size : '12sp'
                                 pos_hint: {'center_x': 1, 'center_y':.54}
 
@@ -373,7 +373,7 @@ Screen:
 
                             IconLeftWidget:
 
-                                icon: 'image_files\\Settings.ico'
+                                icon: app.image_path("Settings.ico")
                                 user_font_size : '15sp'
                                 pos_hint: {'center_x': 1, 'center_y':.54}
 
@@ -385,6 +385,6 @@ Screen:
 
                             IconLeftWidget:
 
-                                icon: 'image_files\\about.png'
+                                icon: app.image_path("about.png")
                                 user_font_size : '12sp'
                                 pos_hint: {'center_x': 1, 'center_y':.54}                     
